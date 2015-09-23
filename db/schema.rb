@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920194206) do
+ActiveRecord::Schema.define(version: 20150923014422) do
+
+  create_table "entries", force: :cascade do |t|
+    t.integer  "field_id"
+    t.string   "field_name"
+    t.string   "field_type"
+    t.string   "table_name"
+    t.string   "data_source_name"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "mappings", force: :cascade do |t|
+    t.integer  "mapping_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "from"
+    t.integer  "to"
+    t.string   "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
