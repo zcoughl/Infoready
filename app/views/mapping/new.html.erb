@@ -1,10 +1,11 @@
 <% provide(:title, "Select") %>
 <h1> Select Data </h1>
 
+<div style="display:inline">
 <%= form_for :entry do |f| %>
   <p>
     <%= f.label :name %><br>
-    <%= f.select :data_source_name, ['InfoReady', 'b2b'] %> 
+    <%= f.text_field :data_source_name %> 
   </p>
 
   <h3> Fields for Datasource1 </h3>
@@ -16,12 +17,35 @@
       <%= g.label :_destroy, 'delete' %>
     </p>
   <% end %>
-
-
   <p>
     <%= f.submit 'Add field', :name => "add_field1" %>
-    <%= f.submit 'Delet checked field', :name=> "remove_field1" %>
+    <%= f.submit 'Delete checked field', :name=> "remove_field1" %>
     <%= f.submit %>  
   </p>
-<% end %>
+  <% end %>
+</div>
+
+<div style="display:inline">
+<%= form_for :entry do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :data_source_name %> 
+  </p>
+
+  <h3> Fields for Datasource1 </h3>
+  <%= f.fields_for :entry do |g| %>
+    <p>  
+      <%= g.text_field :field_name %>
+      <%= g.select :field_type, ['CHAR', 'INTEGER'] %>
+      <%= g.check_box :_destroy %>
+      <%= g.label :_destroy, 'delete' %>
+    </p>
+  <% end %>
+  <% end %>
+</div>
+
+  
+
+
+
 

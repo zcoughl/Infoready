@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150923014422) do
+ActiveRecord::Schema.define(version: 20150925214743) do
 
   create_table "entries", force: :cascade do |t|
     t.integer  "field_id"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20150923014422) do
     t.string   "data_source_name"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "entry_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "mappings", force: :cascade do |t|
