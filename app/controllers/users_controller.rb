@@ -5,6 +5,10 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    if session[:user_id] != @user.id
+        flash[:success] = "You are not authorized to view this page!"
+        redirect_to help_path
+    end
   end
 
   def create
