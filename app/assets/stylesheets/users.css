@@ -2,3 +2,23 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+div[class*="wrapper"]{
+	text-align: center;
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	margin-top: 40px;
+	padding: 40px 20%;
+	background-color: white;
+}
+div.user-wrapper{
+	margin-top: 200px;
+}
+body{
+	/*background-image: url(banner-bg-copy.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 450px;*/
+
+}
+

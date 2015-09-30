@@ -1,11 +1,40 @@
 <% provide(:title, @user.name) %>
+<div class="container">
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+    <div class="col-md-12 col-sm-12 ">
+      	<div class="user-wrapper">
+        	
+        	<div class="col-md-4">
+        		<%= image_tag("icon-photo.png",:alt=>"profile-photo")%>
+        		<%= link_to "Edit Porfile", update_path(:id=>@user.id), class: "btn btn-primary" %>
+        	</div>
+        	<div class="col-md-8">
+        		<h1>
+        			<%= @user.name %>
+        		</h1>
+
+        		<div class="row">
+        			<%= image_tag("icon-building.png",:alt=>"icon-building")%>
+        			<%= @user.company%>
+        		</div>
+        		<div class="row">
+        			<%= image_tag("icon-mail.png",:alt=>"icon-mail")%>
+        			<%= @user.email%>
+        		</div>
+        	</div>
+        		
+        	<div class="row">
+        	<hr>
+        	</div>
+        </div>
+    </div>
+    <div class="row">
+    </div>
+
+    <div class="col-md-12 col-sm-12">
+    	<div class="activity-wrapper">
+    		recent activities
+    	</div>
+    </div>
+</div>
 </div>
