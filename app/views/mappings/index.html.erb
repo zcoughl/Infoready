@@ -3,6 +3,7 @@
 <%= link_to 'New mapping', new_mapping_path %>
 <table>
   <tr>
+  	<th>Mapping id | </th>
     <th>Database | </th>
     <th>Column Name | </th>
     <th>Column Type | </th>
@@ -14,12 +15,16 @@
  
   <% @mappings.each do |mapping| %>
     <tr>
+      <td><%= mapping.id %></td>
       <td><%= mapping.database %></td>
       <td><%= mapping.colname %></td>
       <td><%= mapping.coltype %></td>
       <td><%= mapping.database2 %></td>
       <td><%= mapping.colname2 %></td>
       <td><%= mapping.coltype2 %></td>
+      <td><%= link_to 'Destroy', mapping_path(mapping),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

@@ -46,6 +46,12 @@ class MappingsController < ApplicationController
    #@entry.field1s.build
 
   end 
+
+  def destroy
+    @mapping = Mapping.find(params[:id])
+    @mapping.destroy
+    redirect_to mappings_path
+  end
   
   private
     def entry_params

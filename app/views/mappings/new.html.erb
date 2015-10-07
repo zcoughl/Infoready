@@ -5,24 +5,24 @@
   <tr>
     <td>
         <%= f.label :Database %>
-        <%= f.text_field :database %> 
+        <%= f.text_field :database, :required => 'required' %> 
 
         <%= f.label :Data_type %> 
-        <%= f.text_field :coltype %>    
+        <%= f.text_field :coltype, :required => 'required' %>    
 
         <%= f.label :Column_name %> 
-        <%= f.text_field :colname %>  
+        <%= f.text_field :colname, :required => 'required' %>  
     </td>
     <td class="spacer" width = "50">
     <td>
         <%= f.label :Database %>
-        <%= f.text_field :database2 %> 
+        <%= f.text_field :database2, :required => 'required' %> 
 
         <%= f.label :Data_type %> 
-        <%= f.text_field :coltype2 %>    
+        <%= f.text_field :coltype2, :required => 'required' %>    
 
         <%= f.label :Column_name %> 
-        <%= f.text_field :colname2 %>  
+        <%= f.text_field :colname2, :required => 'required' %>  
     </td>
   </tr>
   <tr>
