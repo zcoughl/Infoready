@@ -23,27 +23,18 @@ class MappingsController < ApplicationController
   end
    
   def edit
-    @entry = Entry.find(params[:id])
-    if params[:add_field1]
-      # rebuild the field1 attributes that doesn't have an id
-      unless params[:db1][:field1s_attributes].blank?
-        for attribute in params[:db1][:field1s_attributes]
-          @entry.field1s.build(attribute.last.except(:_destroy)) unless attribute.last.has_key?(:id)
-  end
-      end
-    @entry.field1s.build 
-    end
+    @mapping = Mapping.find(params[:id])
   end
 
   def update
-   #@entry = Entry.find(params[:id])
-   #if params[:add_field1]
-   #  unless params[:db1][:fields1_attributes].blank?
-   #    for attribute in params[:db1][:field1s_attributes]
-   #      @entry.field1s.build(attribute.last.except(:_destory) unless attribute.last.has_key?(:id)
-   #    end
-   #  end
-   #@entry.field1s.build
+
+    @mapping = Mapping.find(params[:id])
+ 
+    if @article.update(params.require(:mapping).permit(:database, :coltype, :colname, :database2, :coltype2, :colname2))
+      redirect_to @mapping
+    else
+      render 'edit'
+  end
 
   end 
 

@@ -22,6 +22,8 @@
       <td><%= mapping.database2 %></td>
       <td><%= mapping.colname2 %></td>
       <td><%= mapping.coltype2 %></td>
+      <td><%= link_to 'Show', mapping_path(mapping) %></td>
+
       <td><%= link_to 'Destroy', mapping_path(mapping),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
