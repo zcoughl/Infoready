@@ -1,0 +1,25 @@
+<h1>Listing mappings</h1>
+
+<%= link_to 'New mapping', new_mapping_path %>
+<table>
+  <tr>
+    <th>Database | </th>
+    <th>Column Name | </th>
+    <th>Column Type | </th>
+
+    <th>Database 2 | </th>
+    <th>Column Name 2 | </th>
+    <th>Column Type 2| </th>
+  </tr>
+ 
+  <% @mappings.each do |mapping| %>
+    <tr>
+      <td><%= mapping.database %></td>
+      <td><%= mapping.colname %></td>
+      <td><%= mapping.coltype %></td>
+      <td><%= mapping.database2 %></td>
+      <td><%= mapping.colname2 %></td>
+      <td><%= mapping.coltype2 %></td>
+    </tr>
+  <% end %>
+</table>

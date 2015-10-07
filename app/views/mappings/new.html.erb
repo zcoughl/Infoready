@@ -1,45 +1,38 @@
 <% provide(:title, "Select") %>
 <h1> Mapping Tool </h1>
-<form>
-  <table align="center">
-    <tr>
-      <td>
-        Database Name:<br>
-        <input type="text" name="DBName" id="text1">
-        Data Type<br>
-        <Select id="text2">
-          <option value="INT" selected>INT</option>
-          <option value="VARCHAR">VARCHAR</option>
-        </Select>
-        <br>
-        Column Name:<br>
-        <input type="text" name="colName" id="text3">
-      </td>
-      <td class = "spacer" width="50">
-      <td>
-        Database Name:<br>
-        <input type="text" name="DBName" id="text4">
-        Data Type<br>
-        <Select id="text5">
-          <option value="INT" selected>INT</option>
-          <option value="VARCHAR">VARCHAR</option>
-        </Select>
-        <br>
-        Column Name:<br>
-        <input type="text" name="colName" id="text6">
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <input align="center" value="Create Mapping" type="button" onclick="createMapping()"/>
-      </td>
-    </tr>
-  </table>
-</form>
-<br>
-<br>
-<table id="mappingTable" align="center">
+<%= form_for :mapping, url: mappings_path do |f| %>
+<table>
+  <tr>
+    <td>
+        <%= f.label :Database %>
+        <%= f.text_field :database %> 
+
+        <%= f.label :Data_type %> 
+        <%= f.text_field :coltype %>    
+
+        <%= f.label :Column_name %> 
+        <%= f.text_field :colname %>  
+    </td>
+    <td class="spacer" width = "50">
+    <td>
+        <%= f.label :Database %>
+        <%= f.text_field :database2 %> 
+
+        <%= f.label :Data_type %> 
+        <%= f.text_field :coltype2 %>    
+
+        <%= f.label :Column_name %> 
+        <%= f.text_field :colname2 %>  
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+        <%= f.submit %>
+    </td>
+  </tr>
 </table>
+<% end %>
+           
 
   <script>    
     function createMapping()
