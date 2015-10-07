@@ -1,5 +1,9 @@
-url links:
+# URL LINKS:
 
-* list all the mappings
+## list all the mappings
 
-http://localhost:3000/mappings
+[a link](http://localhost:3000/mappings)
+
+# create a new mapping
+
+[a link](http://localhost:3000/mappings/new)
