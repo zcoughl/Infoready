@@ -1,60 +1,38 @@
 <% provide(:title, "Select") %>
-
-<div class="row">
 <h1> Mapping Tool </h1>
-<%= form_for(@mapping) do |f| %>
-  <%= render 'shared/error_messages' %>
+<%= form_for :mapping, url: mappings_path do |f| %>
+<table>
+  <tr>
+    <td>
+        <%= f.label :Database %>
+        <%= f.text_field :database, :required => 'required' %> 
 
-  <%= f.label :data_source_name, "Daba source" %>
-  <%= f.text_field :data_source_name, class: 'form-control' %>
+        <%= f.label :Data_type %> 
+        <%= f.text_field :coltype, :required => 'required' %>    
 
-  <%= f.label :field_name, "Field name" %>
-  <%= f.text_field :field_name, class: 'form-control' %>
-  <%= f.submit "Create entry", class: "btn btn-primary" %>
-<%end%>
-</div>
+        <%= f.label :Column_name %> 
+        <%= f.text_field :colname, :required => 'required' %>  
+    </td>
+    <td class="spacer" width = "50">
+    <td>
+        <%= f.label :Database %>
+        <%= f.text_field :database2, :required => 'required' %> 
 
+        <%= f.label :Data_type %> 
+        <%= f.text_field :coltype2, :required => 'required' %>    
 
-<form>
-  <table align="center">
-    <tr>
-      <td>
-        Database Name:<br>
-        <input type="text" name="DBName" id="text1">
-        Data Type<br>
-        <Select id="text2">
-          <option value="INT" selected>INT</option>
-          <option value="VARCHAR">VARCHAR</option>
-        </Select>
-        <br>
-        Column Name:<br>
-        <input type="text" name="colName" id="text3">
-      </td>
-      <td class = "spacer" width="50">
-      <td>
-        Database Name:<br>
-        <input type="text" name="DBName" id="text4">
-        Data Type<br>
-        <Select id="text5">
-          <option value="INT" selected>INT</option>
-          <option value="VARCHAR">VARCHAR</option>
-        </Select>
-        <br>
-        Column Name:<br>
-        <input type="text" name="colName" id="text6">
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <input align="center" value="Create Mapping" type="button" onclick="createMapping()"/>
-      </td>
-    </tr>
-  </table>
-</form>
-<br>
-<br>
-<table id="mappingTable" align="center">
+        <%= f.label :Column_name %> 
+        <%= f.text_field :colname2, :required => 'required' %>  
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+        <%= f.submit %>
+    </td>
+  </tr>
 </table>
+<% end %>
+           
 
   <script>    
     function createMapping()
