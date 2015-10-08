@@ -1,7 +1,10 @@
 class MappingsController < ApplicationController
   def index
     @mappings = Mapping.all
+  end
 
+  def edit
+    @mapping = Mapping.find(params[:id])
   end
   
   def show
@@ -13,29 +16,24 @@ class MappingsController < ApplicationController
     @mapping = Mapping.new
   end
 
-  def create
-    
-   # flash[:notice] =  'Article'
+  def create 
+    # flash[:notice] =  'Article'
     @mapping = Mapping.new(params.require(:mapping).permit(:database, :coltype, :colname, :database2, :coltype2, :colname2))
-    @mapping.save
-    redirect_to @mapping
- 
-  end
-   
-  def edit
-    @mapping = Mapping.find(params[:id])
+    if @mapping.save
+      redirect_to @mapping
+    else
+      render 'new'
+    end
   end
 
   def update
-
     @mapping = Mapping.find(params[:id])
- 
-    if @article.update(params.require(:mapping).permit(:database, :coltype, :colname, :database2, :coltype2, :colname2))
+    # render plain: params[:mapping].inspect
+    if @mapping.update(params.require(:mapping).permit(:database, :coltype, :colname, :database2, :coltype2, :colname2))
       redirect_to @mapping
     else
       render 'edit'
-  end
-
+    end
   end 
 
   def destroy

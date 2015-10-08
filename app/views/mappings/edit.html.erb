@@ -1,0 +1,37 @@
+<% provide(:title, "Select") %>
+<h1> Editing Mapping </h1>
+
+<%= form_for :mapping, url: mapping_path(@mapping), method: :patch do |f| %>
+<table>
+  <tr>
+    <td>
+        <%= f.label :Database %>
+        <%= f.text_field :database, :required => 'required' %> 
+
+        <%= f.label :Data_type %> 
+        <%= f.text_field :coltype, :required => 'required' %>    
+
+        <%= f.label :Column_name %> 
+        <%= f.text_field :colname, :required => 'required' %>  
+    </td>
+    <td class="spacer" width = "50">
+    <td>
+        <%= f.label :Database %>
+        <%= f.text_field :database2, :required => 'required' %> 
+
+        <%= f.label :Data_type %> 
+        <%= f.text_field :coltype2, :required => 'required' %>    
+
+        <%= f.label :Column_name %> 
+        <%= f.text_field :colname2, :required => 'required' %>  
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+        <%= f.submit %>
+    </td>
+  </tr>
+</table>
+<% end %>
+
+<%= link_to 'Back', mappings_path %>
