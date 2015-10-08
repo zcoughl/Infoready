@@ -1,6 +1,6 @@
 class MappingController < ApplicationController
 	def index
-    @entry = Entry.all
+    @mapping = Mapping.all
 
   end
   
@@ -9,25 +9,26 @@ class MappingController < ApplicationController
   end
 
   def new
-    @entry = Entry.new
+    @mapping = Mapping.new
   end
 
   def create
-    flash[:notice] =  'Article'
-    @entry = Entry.new(db1_params)
+    #flash[:notice] =  'Entry made'
+    #@entry = Entry.new(entry_params)
+
    # @db2 = Db2.new(params[:db2])
-    if params[:add_field1] 
-      flash[:notice] = "hi!"
-      @entry.field1s.build
-    elsif params[:remove_field1]
+    #if params[:add_field1] 
+     # flash[:notice] = "hi!"
+     # @entry.field1s.build
+    #elsif params[:remove_field1]
       # nested model
-    else  
+    #else  
       # save goes like usual
-      if @entry.save
-        flash[:notice] = "Successfully saved."
-      end
-    end
-    render :action => 'index'   
+      #if @entry.save
+      #  flash[:notice] = "Successfully saved."
+      #end
+    #end
+    #render :action => 'index'   
   end
    
   def edit
@@ -57,6 +58,6 @@ class MappingController < ApplicationController
   
   private
     def entry_params
-      params.require(:db1).permit(:name)
+      params.require(:entry).permit(:field_name, :field_type, :table_name, :data_source_name)
     end
 end

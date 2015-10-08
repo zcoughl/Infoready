@@ -1,5 +1,20 @@
 <% provide(:title, "Select") %>
+
+<div class="row">
 <h1> Mapping Tool </h1>
+<%= form_for(@mapping) do |f| %>
+  <%= render 'shared/error_messages' %>
+
+  <%= f.label :data_source_name, "Daba source" %>
+  <%= f.text_field :data_source_name, class: 'form-control' %>
+
+  <%= f.label :field_name, "Field name" %>
+  <%= f.text_field :field_name, class: 'form-control' %>
+  <%= f.submit "Create entry", class: "btn btn-primary" %>
+<%end%>
+</div>
+
+
 <form>
   <table align="center">
     <tr>
