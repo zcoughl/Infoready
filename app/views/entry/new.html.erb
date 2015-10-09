@@ -1,0 +1,32 @@
+<% provide(:title, "Create fields") %>
+
+<%= form_for :entry, url: entry_path do |f| %>
+  <p>
+    <%= f.label :data_source_name %><br>
+    <%= f.text_field :data_source_name %>
+  </p>
+ 
+	<p>
+    <%= f.label :table_name %><br>
+    <%= f.text_field :table_name %>
+  </p>
+
+  <p>
+    <%= f.label :field_name %><br>
+    <%= f.text_field :field_name %>
+  </p>
+
+  <p>
+    <%= f.label :field_type %><br>
+    <%= f.select(:field_type) do %>
+  		<% [['INT', 'INT'], ['VARCHAR', 'VARCHAR']].each do |c| -%>
+    		<%= content_tag(:option, c.first, value: c.last) %>
+  		<% end %>
+	<% end %>
+  </p>
+ 	
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

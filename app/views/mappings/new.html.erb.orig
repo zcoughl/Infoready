@@ -1,0 +1,149 @@
+<% provide(:title, "Select") %>
+
+<div class="row">
+<h1> Mapping Tool </h1>
+<<<<<<< HEAD:app/views/mapping/new.html.erb
+<%= form_for(@mapping) do |f| %>
+  <%= render 'shared/error_messages' %>
+
+  <%= f.label :data_source_name, "Daba source" %>
+  <%= f.text_field :data_source_name, class: 'form-control' %>
+
+  <%= f.label :field_name, "Field name" %>
+  <%= f.text_field :field_name, class: 'form-control' %>
+  <%= f.submit "Create entry", class: "btn btn-primary" %>
+<%end%>
+</div>
+
+
+<form>
+  <table align="center">
+    <tr>
+      <td>
+        Database Name:<br>
+        <input type="text" name="DBName" id="text1">
+        Data Type<br>
+        <Select id="text2">
+          <option value="INT" selected>INT</option>
+          <option value="VARCHAR">VARCHAR</option>
+        </Select>
+        <br>
+        Column Name:<br>
+        <input type="text" name="colName" id="text3">
+      </td>
+      <td class = "spacer" width="50">
+      <td>
+        Database Name:<br>
+        <input type="text" name="DBName" id="text4">
+        Data Type<br>
+        <Select id="text5">
+          <option value="INT" selected>INT</option>
+          <option value="VARCHAR">VARCHAR</option>
+        </Select>
+        <br>
+        Column Name:<br>
+        <input type="text" name="colName" id="text6">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <input align="center" value="Create Mapping" type="button" onclick="createMapping()"/>
+      </td>
+    </tr>
+  </table>
+</form>
+<br>
+<br>
+<table id="mappingTable" align="center">
+=======
+<%= form_for :mapping, url: mappings_path do |f| %>
+<table>
+  <tr>
+    <td>
+        <%= f.label :Database %>
+        <%= f.text_field :database, :required => 'required' %> 
+
+        <%= f.label :Data_type %> 
+        <%= f.text_field :coltype, :required => 'required' %>    
+
+        <%= f.label :Column_name %> 
+        <%= f.text_field :colname, :required => 'required' %>  
+    </td>
+    <td class="spacer" width = "50">
+    <td>
+        <%= f.label :Database %>
+        <%= f.text_field :database2, :required => 'required' %> 
+
+        <%= f.label :Data_type %> 
+        <%= f.text_field :coltype2, :required => 'required' %>    
+
+        <%= f.label :Column_name %> 
+        <%= f.text_field :colname2, :required => 'required' %>  
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+        <%= f.submit %>
+    </td>
+  </tr>
+>>>>>>> c239ffc56100af86c3de3eca768708b51c5eb1ea:app/views/mappings/new.html.erb
+</table>
+<% end %>
+           
+
+  <script>    
+    function createMapping()
+    {
+      var table = document.getElementById("mappingTable");
+      table.border = "0";
+
+      var row = table.insertRow(-1);
+      row.align = "left";
+      var cell1 = row.insertCell(0);
+      cell1.innerHTML = "Database: " + document.getElementById("text1").value;
+
+      row.insertCell(1);
+      var cell5 = row.insertCell(2);
+      cell5.innerHTML = "Database: " + document.getElementById("text4").value;
+      cell5.align="right";
+      ////
+      var row2 = table.insertRow(-1);
+      row2.align = "left";
+      var cell2 = row2.insertCell(0);
+      cell2.innerHTML = "Type: " + document.getElementById("text2").value;
+      var mappcell = row2.insertCell(1);
+      mappcell.innerHTML = "<------>";
+      mappcell.align = "center";
+      var cell6 = row2.insertCell(2);
+      cell6.innerHTML = "Type: " + document.getElementById("text5").value;
+      cell6.align="right";
+      ////
+
+      var row3 = table.insertRow(-1);
+      row3.align = "left";
+      var cell3 = row3.insertCell(0);
+      cell3.innerHTML = "Named: " + document.getElementById("text3").value;
+      row3.insertCell(1);
+      var cell7 = row3.insertCell(2);
+      cell7.innerHTML = "Named: " + document.getElementById("text6").value;
+      cell7.align="right";
+
+      var temp = table.insertRow(-1);
+      var cell = temp.insertCell(0);
+      cell.innerHTML = "----------------------------------------------";
+      cell = temp.insertCell(1);
+      cell.innerHTML = "----------------------------------------------";
+      cell = temp.insertCell(2);
+      cell.innerHTML = "----------------------------------------------";
+
+      
+    }
+  </script>
+
+
+
+  
+
+
+
+
