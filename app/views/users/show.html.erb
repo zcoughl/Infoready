@@ -33,7 +33,25 @@
 
     <div class="col-md-12 col-sm-12">
     	<div class="activity-wrapper">
-    		recent activities
+            <div class="row">
+    		  <h3>Added Data Sources</h3>
+            </div>
+            <ol class="datasources">
+                
+                <% @datasources.each do |source| %>
+                <table>
+                    <tr>
+                        <td><b><%= source.source_name%> </b></td>
+                        <td><%= source.account%></td>
+                    </tr>
+                </table>
+                <%end%>
+                <div class="row">
+                <br>
+                <%= link_to "Add datasource", datasource_path(:id=>@user.id), class: "btn btn-primary" %>
+                </div>
+            </ol>
+
     	</div>
     </div>
 </div>

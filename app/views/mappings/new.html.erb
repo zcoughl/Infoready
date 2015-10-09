@@ -1,6 +1,6 @@
 <% provide(:title, "Select") %>
 <h1> Mapping Tool </h1>
-<%= form_for :mapping, url: mappings_path do |f| %>
+<%= form_for :mapping, url: {action: "create"} do |f| %>
 <table>
   <tr>
     <td>

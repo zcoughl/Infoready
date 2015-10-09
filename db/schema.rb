@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007000613) do
+ActiveRecord::Schema.define(version: 20151008185412) do
+
+  create_table "datasources", force: :cascade do |t|
+    t.text     "source_name"
+    t.text     "account"
+    t.text     "password"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "datasources", ["user_id"], name: "index_datasources_on_user_id"
 
   create_table "entries", force: :cascade do |t|
     t.integer  "field_id"
@@ -34,11 +46,8 @@ ActiveRecord::Schema.define(version: 20151007000613) do
     t.integer  "mapping_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "from"
-    t.integer  "to"
-    t.string   "user_id"
-    t.string   "coltype"
     t.string   "database"
+    t.string   "coltype"
     t.string   "colname"
     t.string   "database2"
     t.string   "colname2"
