@@ -3,25 +3,17 @@
 <%= link_to 'New mapping', new_mapping_path %>
 <table>
   <tr>
-  	<th>Mapping id | </th>
-    <th>Database | </th>
-    <th>Column Name | </th>
-    <th>Column Type | </th>
-
-    <th>Database 2 | </th>
-    <th>Column Name 2 | </th>
-    <th>Column Type 2| </th>
+  	<th>| Mapping id | </th>
+    <th>  Database 1 |</th>
+    <th>  Database 2  </th>
   </tr>
  
   <% @mappings.each do |mapping| %>
     <tr>
       <td><%= mapping.id %></td>
-      <td><%= mapping.database %></td>
-      <td><%= mapping.colname %></td>
-      <td><%= mapping.coltype %></td>
+      <td><%= mapping.database1 %></td>
       <td><%= mapping.database2 %></td>
-      <td><%= mapping.colname2 %></td>
-      <td><%= mapping.coltype2 %></td>
+
       <td><%= link_to 'Show', mapping_path(mapping) %></td>
       <td><%= link_to 'Edit', edit_mapping_path(mapping) %></td>
       <td><%= link_to 'Destroy', mapping_path(mapping),

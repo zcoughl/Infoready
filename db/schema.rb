@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007000613) do
+ActiveRecord::Schema.define(version: 20151009135230) do
 
   create_table "entries", force: :cascade do |t|
-    t.integer  "field_id"
-    t.string   "field_name"
-    t.string   "field_type"
-    t.string   "table_name"
-    t.string   "data_source_name"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "tablename"
+    t.string   "colname"
+    t.string   "coltype"
+    t.integer  "database"
+    t.integer  "mapping_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  add_index "entries", ["mapping_id"], name: "index_entries_on_mapping_id"
 
   create_table "groups", force: :cascade do |t|
     t.integer  "group_id"
@@ -31,18 +33,11 @@ ActiveRecord::Schema.define(version: 20151007000613) do
   end
 
   create_table "mappings", force: :cascade do |t|
-    t.integer  "mapping_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "from"
-    t.integer  "to"
     t.string   "user_id"
-    t.string   "coltype"
-    t.string   "database"
-    t.string   "colname"
     t.string   "database2"
-    t.string   "colname2"
-    t.string   "coltype2"
+    t.string   "database1"
   end
 
   create_table "users", force: :cascade do |t|

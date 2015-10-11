@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get 'edit' => 'users#edit'
   resources :users
-  resources :mappings
+  resources :mappings do
+    resources :entries
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

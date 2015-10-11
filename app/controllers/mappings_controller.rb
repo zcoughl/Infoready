@@ -17,19 +17,19 @@ class MappingsController < ApplicationController
   end
 
   def create 
-    # flash[:notice] =  'Article'
-    @mapping = Mapping.new(params.require(:mapping).permit(:database, :coltype, :colname, :database2, :coltype2, :colname2))
+    #render plain: params[:mapping].inspect
+    @mapping = Mapping.new(mapping_params)
     if @mapping.save
       redirect_to @mapping
     else
-      render 'new'
+     render 'new'
     end
   end
 
   def update
     @mapping = Mapping.find(params[:id])
-    # render plain: params[:mapping].inspect
-    if @mapping.update(params.require(:mapping).permit(:database, :coltype, :colname, :database2, :coltype2, :colname2))
+    render plain: params[:mapping].inspect
+    if @mapping.update(mapping_params)
       redirect_to @mapping
     else
       render 'edit'
@@ -43,7 +43,7 @@ class MappingsController < ApplicationController
   end
   
   private
-    def entry_params
-      params.require(:db1).permit(:name)
+    def mapping_params
+      params.require(:mapping).permit(:database1, :database2)
     end
 end

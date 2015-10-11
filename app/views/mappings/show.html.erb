@@ -1,41 +1,103 @@
 <p> Mapping <%= @mapping.id %></p>
 
 <table>
+<tr>
+<td>
+Database 1: <%= @mapping.database1 %><br>
+<table>
   <tr>
-    <td>
-    	<p> 
-			Database:
-			<%= @mapping.database %><br>
-		</p>
-		<p> 
-			Column Name:
-			<%= @mapping.colname %><br>
-		</p>
-		<p> 
-			Column Type:
-			<%= @mapping.coltype %><br>
-		</p>
+  	<td>Table Name | </td>
+  	<td>Column Name | </td>
+  	<td>Column Type</td>
+  	<td>Edit<td>
+  </tr>
 
-    </td>
-		
-	<td class="spacer" width = "50">
-    <td>
-		<p> 
-			Database 2:
-			<%= @mapping.database2 %><br>
-		</p>
-		<p> 
-			Column Name:
-			<%= @mapping.colname2 %><br>
-		</p>
-		<p> 
-			Column Type:
-			<%= @mapping.coltype2 %><br>
-		</p>
+  <% @mapping.entries.where(database: [1]).find_each do |entry| %>
+  <tr>
+  	<td><%= entry.tablename %></td>
+    <td><%= entry.colname %></td>
+    <td><%= entry.coltype %></td>
+    <td>Edit<td>
+  </tr>
+  <% end %>
 
-    </td>
+  <tr>
+  	<%= form_for([@mapping, @mapping.entries.build]) do |f| %>
+  	<td>
+    	<%= f.text_area :tablename %>
+	</td>
+
+	<td>
+    	<%= f.text_area :colname %>
+	</td>
+
+    <td>
+    	<%= f.text_area :coltype %>
+	</td>
+
+	  	<%= f.hidden_field :database, :value => 1 %>
+
+	<td>
+	  	<%= f.submit %>
+	</td>
+
+	<% end %>
   </tr>
 </table>
+
+</td>
+
+<td width = '50'></td>
+
+<td>
+Database 2: <%= @mapping.database2 %><br>
+
+<table>
+  <tr>
+  	<td>Table Name | </td>
+  	<td>Column Name | </td>
+  	<td>Column Type</td>
+  	<td>Edit<td>
+  </tr>
+
+  <% @mapping.entries.where(database: [2]).find_each do |entry| %>
+  <tr>
+  	<td><%= entry.tablename %></td>
+    <td><%= entry.colname %></td>
+    <td><%= entry.coltype %></td>
+    <td>Edit<td>
+  </tr>
+  <% end %>
+
+  <tr>
+  	<%= form_for([@mapping, @mapping.entries.build]) do |f2| %>
+  	<td>
+    	<%= f2.text_area :tablename %>
+	</td>
+
+	<td>
+    	<%= f2.text_area :colname %>
+	</td>
+
+    <td>
+    	<%= f2.text_area :coltype %>
+	</td>
+
+	  	<%= f2.hidden_field :database, :value => 2 %>
+
+	<td>
+	  	<%= f2.submit %>
+	</td>
+
+	<% end %>
+  </tr>
+
+</table>
+</td>
+</tr>
+</table>
+
+
  
 <%= link_to 'Edit', edit_mapping_path(@mapping) %> |
 <%= link_to 'List Mapping', mappings_path %>

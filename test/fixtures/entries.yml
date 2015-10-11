@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tablename: MyString
+  colname: MyString
+  coltype: MyString
+  database: 1
+  mapping_id: 
+
+two:
+  tablename: MyString
+  colname: MyString
+  coltype: MyString
+  database: 1
+  mapping_id: 
