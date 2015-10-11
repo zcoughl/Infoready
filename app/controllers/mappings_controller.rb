@@ -1,4 +1,5 @@
 class MappingsController < ApplicationController
+  before_action only: [:create, :destroy]
   def index
     @mappings = Mapping.all
   end
