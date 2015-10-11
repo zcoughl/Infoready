@@ -1,0 +1,49 @@
+<% provide(:title, "Datasource") %>
+<h3> Saved Datasources </h3>
+<table>	
+	<% @datasources.each do |source| %>
+		<tr>
+			<p><td><b><%= source.source_name %> </b></td></p>
+			<td><%= source.account %></td>
+		</tr>
+	<%end%>
+</table>
+
+
+<br>
+<br>
+<h3>Create New</h3>
+<div class="newform">
+<%= form_for :datasource, url: {action: "create"} do |f| %>
+<table>
+<tr>
+	<td>
+		<%= f.label :source_name %><br />
+		<%= f.text_field :source_name %>
+	</td>
+	<td>
+		<%= f.label :account %><br />
+		<%= f.text_field :account %>
+	</td>
+	<td>
+		<%= f.label :password %><br />
+		<%= f.text_field :password %>
+	</td>
+</tr>
+<tr>
+	<td>
+		<%= f.label :description %><br />
+		<%= f.text_area :description %>
+	</td>
+</tr>
+<tr>
+    <td colspan="3">
+        <%= f.submit "Add new datasource"%>
+    </td>
+ </tr>
+</table>
+
+<%end%>
+</div>
+
+<%= link_to 'Back to profile', current_user %>

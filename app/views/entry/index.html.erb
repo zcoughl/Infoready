@@ -1,0 +1,19 @@
+<h1> Listing entries </h1>
+
+<table>
+	<tr>
+		<th>Data Source Name</th>
+		<th>Table Name</th>
+		<th>Field Name</th>
+		<th>Field Type</th>
+	</tr>
+
+	<% @entries.each do |entry| %>
+		<tr>
+			<td><% entry.data_source_name %></td>
+			<td><% entry.table_name %></td>
+			<td><% entry.field_name %></td>
+			<td><% entry.field_type %></td>
+		</tr>
+	<% end %>
+</table>
