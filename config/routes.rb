@@ -15,15 +15,11 @@ Rails.application.routes.draw do
   get 'datasource' =>'datasources#index'
   post 'datasource' => 'datasources#create'
   resources :users
-<<<<<<< HEAD
+
   resources :mappings do
     resources :entries
   end
-=======
-  resources :mappings
-  resources :datasources
 
->>>>>>> 88b2a5391acad88b77b2f93b18cd02e5bba569c8
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
