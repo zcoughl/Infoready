@@ -8,7 +8,7 @@ Database 1: <%= @mapping.database1 %><br>
   <tr>
   	<td>Table Name | </td>
   	<td>Column Name | </td>
-  	<td>Column Type</td>
+  	<td>Column Type |</td>
   	<td>Edit<td>
   </tr>
 
@@ -17,30 +17,39 @@ Database 1: <%= @mapping.database1 %><br>
   	<td><%= entry.tablename %></td>
     <td><%= entry.colname %></td>
     <td><%= entry.coltype %></td>
-    <td>Edit<td>
+    <td>
+      <%= link_to 'Delete', [entry.mapping, entry],
+                     method: :delete,
+                     data: { confirm: 'Are you sure?'} %>
+    </td>
   </tr>
   <% end %>
 
   <tr>
   	<%= form_for([@mapping, @mapping.entries.build]) do |f| %>
-  	<td>
-    	<%= f.text_area :tablename %>
-	</td>
+    <td>
+      	<%= f.text_area :tablename, :required => 'required' %>
+  	</td>
 
-	<td>
-    	<%= f.text_area :colname %>
-	</td>
+  	<td>
+      	<%= f.text_area :colname, :required => 'required' %>
+  	</td>
+
+      <td>
+      	<%= f.text_area :coltype, :required => 'required'  %>
+  	</td>
+
+  	<%= f.hidden_field :database, :value => 1 %>
+
+  	<td>
+  	  	<%= f.submit %>
+  	</td>
+
+    
 
     <td>
-    	<%= f.text_area :coltype %>
-	</td>
 
-	  	<%= f.hidden_field :database, :value => 1 %>
-
-	<td>
-	  	<%= f.submit %>
-	</td>
-
+    </td>
 	<% end %>
   </tr>
 </table>
@@ -65,22 +74,26 @@ Database 2: <%= @mapping.database2 %><br>
   	<td><%= entry.tablename %></td>
     <td><%= entry.colname %></td>
     <td><%= entry.coltype %></td>
-    <td>Edit<td>
-  </tr>
+    <td>
+      <%= link_to 'Delete', [entry.mapping, entry],
+                     method: :delete,
+                     data: { confirm: 'Are you sure?'} %>
+    </td>
+
   <% end %>
 
   <tr>
   	<%= form_for([@mapping, @mapping.entries.build]) do |f2| %>
   	<td>
-    	<%= f2.text_area :tablename %>
+    	<%= f2.text_area :tablename, :required => 'required' %>
 	</td>
 
 	<td>
-    	<%= f2.text_area :colname %>
+    	<%= f2.text_area :colname, :required => 'required' %>
 	</td>
 
     <td>
-    	<%= f2.text_area :coltype %>
+    	<%= f2.text_area :coltype, :required => 'required'  %>
 	</td>
 
 	  	<%= f2.hidden_field :database, :value => 2 %>

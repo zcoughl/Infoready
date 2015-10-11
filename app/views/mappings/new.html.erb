@@ -1,7 +1,8 @@
 <% provide(:title, "Select") %>
 <h1> Mapping Tool </h1>
 
-<%= form_for :mapping, url: mappings_path do |f| %>
+
+<%= form_for @mapping, url: mappings_path do |f| %>
 
   <% if @mapping.errors.any? %>
     <div id="error_explanation">
@@ -18,24 +19,33 @@
   <% end %>
 
 <table>
+
+  <tr>
+    <td>
+      <%= f.submit %>
+    </td>
+    
+  </tr>
+  
   <tr>
     <td>
         <%= f.label :Database_1%>
         <%= f.text_field :database1, :required => 'required' %> 
  
     </td>
-    <td class="spacer" width = "50">
+
+    <td width = 50></td>
+    
     <td>
         <%= f.label :Database_2 %>
         <%= f.text_field :database2, :required => 'required' %>  
     </td>
   </tr>
-  <tr>
-    <td colspan="3">
-        <%= f.submit %>
-    </td>
-  </tr>
+
+
 </table>
+
+
 <% end %>
            
 
