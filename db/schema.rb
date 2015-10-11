@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20151009135230) do
-=======
-ActiveRecord::Schema.define(version: 20151008185412) do
 
   create_table "datasources", force: :cascade do |t|
     t.text     "source_name"
@@ -27,7 +24,6 @@ ActiveRecord::Schema.define(version: 20151008185412) do
   end
 
   add_index "datasources", ["user_id"], name: "index_datasources_on_user_id"
->>>>>>> 88b2a5391acad88b77b2f93b18cd02e5bba569c8
 
   create_table "entries", force: :cascade do |t|
     t.string   "tablename"
@@ -51,13 +47,7 @@ ActiveRecord::Schema.define(version: 20151008185412) do
   create_table "mappings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
     t.string   "user_id"
-=======
-    t.string   "database"
-    t.string   "coltype"
-    t.string   "colname"
->>>>>>> 88b2a5391acad88b77b2f93b18cd02e5bba569c8
     t.string   "database2"
     t.string   "database1"
   end
