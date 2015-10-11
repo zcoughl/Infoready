@@ -1,10 +1,6 @@
 class MappingsController < ApplicationController
   before_action only: [:create, :destroy]
-<<<<<<< HEAD
 
-=======
-
->>>>>>> 4213a886c4797345ce1bdcc9e147e9118b8a6ffc
   def index
     @mappings = Mapping.all
   end
