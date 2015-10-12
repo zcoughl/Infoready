@@ -1,33 +1,34 @@
 <h1>Saved Mappings</h1>
 
 
-<%= link_to 'New mapping', new_mapping_path %>
-<table>
+
+<table align="center">
   <tr>
-  	<th>| Mapping id | </th>
-    <th>  Database 1 |</th>
-    <th>  Database 2  </th>
+  	<th style="padding: 15px;">| Mapping id | </th>
+    <th style="padding: 15px;">|  Database 1 |</th>
+    <th style="padding: 15px;">|  Database 2  |</th>
 
 
   </tr>
  
   <% @mappings.each do |mapping| %>
-    <tr>
+    <tr align="center">
 
-      <td><%= mapping.id %></td>
-      <td><%= mapping.database1 %></td>
-      <td><%= mapping.database2 %></td>
+      <td style="padding-right: 15px;"><%= mapping.id %></td>
+      <td style="padding-right: 15px;"><%= mapping.database1 %></td>
+      <td style="padding-right: 15px;"><%= mapping.database2 %></td>
 
-      <td><%= link_to 'Show', mapping_path(mapping) %></td>
-      <td><%= link_to 'Edit', edit_mapping_path(mapping) %></td>
-      <td><%= link_to 'Destroy', mapping_path(mapping),
+      <td style="padding-right: 15px;"><%= link_to 'Show', mapping_path(mapping) %></td>
+      <td style="padding-right: 15px;"><%= link_to 'Edit', edit_mapping_path(mapping) %></td>
+      <td style="padding-right: 15px;"><%= link_to 'Destroy', mapping_path(mapping),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
+  <tr align="right">
+    <td style="padding-right: 15px;" colspan="6">
+      <p><br></p>
+      <%= link_to '<button type="button">New Mapping</button>'.html_safe, new_mapping_path %>
+    </td>
+  </tr>
 </table>
-
-<br>
-<p style="padding-right: 70px;" align="right">
-<%= link_to '<button type="button">New Mapping</button>'.html_safe, new_mapping_path %>
-</p>
