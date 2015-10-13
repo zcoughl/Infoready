@@ -1,18 +1,16 @@
 <% provide(:title, @user.name) %>
 <div class="container">
-<div class="row">
+
     <div class="col-md-12 col-sm-12 ">
       	<div class="user-wrapper">
-        	
+        	<h1>
+                    <%= @user.name %>
+            </h1>
+            <div class="row">
         	<div class="col-md-4">
-        		<%= image_tag("icon-photo.png",:alt=>"profile-photo")%>
-        		<%= link_to "Edit Profile", edit_path(:id=>@user.id), class: "btn btn-primary" %>
+                <%= gravatar_for @user %>
         	</div>
         	<div class="col-md-8">
-        		<h1>
-        			<%= @user.name %>
-        		</h1>
-
         		<div class="row">
         			<%= image_tag("icon-building.png",:alt=>"icon-building")%>
         			<%= @user.company%>
@@ -22,9 +20,10 @@
         			<%= @user.email%>
         		</div>
         	</div>
-        		
+        	</div>
         	<div class="row">
-        	<hr>
+                <%= link_to "Edit Profile", edit_path(:id=>@user.id), class: "btn btn-primary" %>
+        	
         	</div>
         </div>
     </div>
@@ -47,12 +46,12 @@
                 </table>
                 <%end%>
                 <div class="row">
-                <br>
                 <%= link_to "Add datasource", datasource_path(:id=>@user.id), class: "btn btn-primary" %>
+                <br>
                 </div>
             </ol>
 
     	</div>
     </div>
-</div>
+
 </div>
