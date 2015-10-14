@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'edit' => 'users#edit'
   get 'datasource' =>'datasources#index'
   post 'datasource' => 'datasources#create'
+  get 'edit_password' => 'users#edit_password'
   resources :users
 
   resources :mappings do
