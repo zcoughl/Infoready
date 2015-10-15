@@ -48,12 +48,27 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <% if not logged_in? %>
                     <li>
                         <a href="#services">Services</a>
                     </li>
                     <li>
                         <a href="/login">Login</a>
                     </li>
+                    <% end %>
+                    <% if logged_in? %>
+                    	<li>
+                    		
+              				<li><%= link_to "Profile", current_user %></li>
+              				<li><%= link_to "Mapping Tool", mappings_path %></li>
+              				<li><%= link_to "Settings", current_user %></li>
+              				<li class="divider"></li>
+              				<li>
+                				<%= link_to "Log out", logout_path, method: "delete" %>
+              				</li>
+            				
+                    	</li>
+                    <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -74,12 +89,14 @@
                         <h3>An MDP Project</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
+                            <% if not logged_in? %>
                             <li>
                                 <a href="/signup" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Sign Up</span></a>
                             </li>
                             <li>
                                 <a href="/login" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Log In</span></a>
                             </li>
+                            <% end %>
                         </ul>
                     </div>
                 </div>

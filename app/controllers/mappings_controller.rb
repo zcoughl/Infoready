@@ -37,7 +37,7 @@ class MappingsController < ApplicationController
     @mapping = Mapping.find(params[:id])
     # render plain: params[:mapping].inspect
     if @mapping.update(mapping_params)
-      flash[:notice] = "Successfully updateed mapping."
+      flash[:notice] = "Successfully updated mapping."
       redirect_to @mapping
     else
       render 'edit'
