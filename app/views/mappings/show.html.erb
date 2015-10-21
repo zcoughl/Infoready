@@ -1,15 +1,18 @@
 <p> Mapping <%= @mapping.id %></p>
 
 <table>
-<tr>
+<tr valign="top">
 <td>
-Database 1: <%= @mapping.database1 %><br>
+<h1>
+Database 1: <%= @mapping.database1 %>
+</h1>
+<br>
 <table>
   <tr align="center">
-  	<td style="padding-right: 15px;">| Table Name | </td>
-  	<td style="padding-right: 15px;">| Column Name | </td>
-  	<td style="padding-right: 15px;">| Column Type | </td>
-  	<td style="padding-right: 15px;">| Edit | <td>
+  	<td style="padding-right: 15px;"> <h4>Table Name</h4>  </td>
+  	<td style="padding-right: 15px;"> <h4>Column Name</h4>  </td>
+  	<td style="padding-right: 15px;"> <h4>Column Type</h4>  </td>
+  	<td style="padding-right: 15px;"> <h4>Edit</h4>  <td>
   </tr>
 
   <% @mapping.entries.where(database: [1]).find_each do |entry| %>
@@ -28,15 +31,15 @@ Database 1: <%= @mapping.database1 %><br>
   <tr>
   	<%= form_for([@mapping, @mapping.entries.build]) do |f| %>
     <td style="padding-right: 15px;">
-      	<%= f.text_area :tablename, :required => 'required' %>
+      	<%= f.text_field :tablename, :required => 'required' %>
   	</td>
 
   	<td style="padding-right: 15px;">
-      	<%= f.text_area :colname, :required => 'required' %>
+      	<%= f.text_field :colname, :required => 'required' %>
   	</td>
 
       <td style="padding-right: 15px;">
-      	<%= f.text_area :coltype, :required => 'required'  %>
+      	<%= f.text_field :coltype, :required => 'required'  %>
   	</td>
 
   	<%= f.hidden_field :database, :value => 1 %>
@@ -59,14 +62,17 @@ Database 1: <%= @mapping.database1 %><br>
 <td width = '50'></td>
 
 <td>
-Database 2: <%= @mapping.database2 %><br>
+<h1>
+Database 2: <%= @mapping.database2 %>
+</h1>
+<br>
 
 <table>
   <tr align="center">
-  	<td style="padding-right: 15px;">| Table Name | </td>
-  	<td style="padding-right: 15px;">| Column Name | </td>
-  	<td style="padding-right: 15px;">| Column Type | </td>
-  	<td style="padding-right: 15px;">| Edit | <td>
+  	<td style="padding-right: 15px;"> <h4>Table Name</h4>  </td>
+  	<td style="padding-right: 15px;"> <h4>Column Name</h4>  </td>
+  	<td style="padding-right: 15px;"> <h4>Column Type</h4>  </td>
+  	<td style="padding-right: 15px;"> <h4>Edit</h4>  <td>
   </tr>
 
   <% @mapping.entries.where(database: [2]).find_each do |entry| %>
@@ -85,15 +91,15 @@ Database 2: <%= @mapping.database2 %><br>
   <tr>
   	<%= form_for([@mapping, @mapping.entries.build]) do |f2| %>
   	<td style="padding-right: 15px;">
-    	<%= f2.text_area :tablename, :required => 'required' %>
+    	<%= f2.text_field :tablename, :required => 'required' %>
 	</td>
 
 	<td style="padding-right: 15px;">
-    	<%= f2.text_area :colname, :required => 'required' %>
+    	<%= f2.text_field :colname, :required => 'required' %>
 	</td>
 
     <td style="padding-right: 15px;">
-    	<%= f2.text_area :coltype, :required => 'required'  %>
+    	<%= f2.text_field :coltype, :required => 'required'  %>
 	</td>
 
 	  	<%= f2.hidden_field :database, :value => 2 %>
