@@ -4,7 +4,8 @@ class MappingsController < ApplicationController
   # http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
   def index
-    @mappings = Mapping.all
+    @user = current_user
+    @mappings = @user.mappings
   end
 
   def edit
@@ -17,14 +18,17 @@ class MappingsController < ApplicationController
   end
 
   def new
-    @mapping = Mapping.new
+    #@mapping = Mapping.new
+    @user = current_user
+    @mapping = @user.mappings.new
     @mapping.entries.build # build entry attributs
   end
 
   def create 
     #render plain: params[:mapping].inspect
-    @mapping = Mapping.new(mapping_params)
-  
+    #@mapping = Mapping.new(mapping_params)
+    @user = current_user
+    @mapping = @user.mappings.new(mapping_params)
     if @mapping.save
       flash[:notice] = "Successfully created mapping."
       redirect_to @mapping

@@ -13,6 +13,12 @@ class UsersController < ApplicationController
         flash[:success] = "You are not authorized to view this page!"
         redirect_to help_path
     end
+
+    @mappings=@user.mappings
+    if session[:user_id] != @user.id
+        flash[:success] = "You are not authorized to view this page!"
+        redirect_to help_path
+    end
   end
 
   def create

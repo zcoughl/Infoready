@@ -1,37 +1,70 @@
 <% provide(:title, @user.name) %>
-<div class="container">
 
-    <div class="col-md-12 col-sm-12 ">
-      	<div class="user-wrapper">
-        	<h1>
+    <div class="upper-wrapper">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-3 col-sm-3">
+            <%= gravatar_for @user %>
+        </div>
+        <div class="col-md-9 col-sm-9 ">
+      	<div class="user-session">
+        	<div class="row">
+                <div class="username" style="font-size:2em; margin-bottom:15px;">
                     <%= @user.name %>
-            </h1>
+                </div>
+            </div>
             <div class="row">
-        	<div class="col-md-4">
-                <%= gravatar_for @user %>
-        	</div>
-        	<div class="col-md-8">
-        		<div class="row">
-        			<%= image_tag("icon-building.png",:alt=>"icon-building")%>
-        			<%= @user.company%>
-        		</div>
-        		<div class="row">
-        			<%= image_tag("icon-mail.png",:alt=>"icon-mail")%>
-        			<%= @user.email%>
-        		</div>
-        	</div>
+                <div class="user-info" style="margin-bottom:15px; color:grey;">
+        	   <!--<%= image_tag("icon-building.png",:alt=>"icon-building")%>-->
+               <div style="margin-right:20px; float: left;">
+        		<%= @user.company%>
+        	   </div>
+               <div style="margin-rignt:10px; ">
+        		<!--<%= image_tag("icon-mail.png",:alt=>"icon-mail")%>-->
+        		<%= @user.email%>
+                </div>
+        	   </div>
         	</div>
         	<div class="row">
                 <%= link_to "Edit Profile", edit_path(:id=>@user.id), class: "btn btn-primary" %>
         	
         	</div>
         </div>
+        </div>
+        </div>
+        </div>
     </div>
-    <div class="row">
-    </div>
-
-    <div class="col-md-12 col-sm-12">
-    	<div class="activity-wrapper">
+    
+    <div class="middle-wrapper">
+        <div class="container">
+        <div class="activity-div">
+            <h2 style="font-size:2em;">Recent Sctivities</h2>
+            <hr class="small">
+        <div class="mappings-records">
+                <ol>
+                <% @mappings.each do |mapping| %>
+                
+                    <div class="row">
+                        <div class="col-sm-4">
+                        <%= mapping.created_at%>
+                        </div>
+                        <div class="col-sm-8" style="text-align:left;">
+                        created mapping between   
+                        <%= mapping.database1%>
+                         and 
+                        <%= mapping.database2%>
+                        </div>
+                    </div>
+                
+                <%end%>
+                </ol>
+                
+            </div>
+        <!--
+        this is the original datasource section
+        <div class="row">
+        <div class="col-md-12 col-sm-12">
+    	
             <div class="row">
     		  <h3>Manage Data Sources</h3>
             </div>
@@ -50,8 +83,11 @@
                 <br>
                 </div>
             </ol>
-
+        </div>
     	</div>
+        -->
+
+        </div>
+        </div>
     </div>
 
-</div>

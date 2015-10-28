@@ -2,18 +2,44 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+body,
+html {
+    width: 100%;
+    height: 100%;
 
+}
+div.container{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
 div[class*="wrapper"]{
 	text-align: center;
+	margin-top: 40px;
+	width: 100%;
+	height: 100%;
+}
+div.activity-div{	
+	
+	
+	margin:0px 10%;
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
 	box-shadow: 0 0 5px rgba(0,0,0,0.5);
-	margin-top: 40px;
-	padding: 40px 20%;
-	background-color: white;
-}
-div.user-wrapper{
 	
+	padding: 40px 8%;
+	background-color: white;
+	
+}
+div.upper-wrapper{
+	height: 20%;
+}
+div.user-session{
+	text-align: left;
+}
+div.middle-wrapper{
+	padding: 50px 0;
+    background-color: #f8f8f8;
 }
 body{
 	/*
