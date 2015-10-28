@@ -1,8 +1,10 @@
 <% provide(:title, "Select") %>
+
+<div class = "jumbotron">
 <h1> Editing Mapping </h1>
 
 <%= form_for :mapping, url: mapping_path(@mapping), method: :patch do |f| %>
-<table>
+<table align="center">
   <tr>
     <td>
         <%= f.label :Database %>
@@ -17,11 +19,12 @@
     </td>
   </tr>
   <tr>
-    <td colspan="3">
-        <%= f.submit %>
+    <td align="center" colspan="3">
+        <button class ="btn btn-default">Update Mapping</button>
     </td>
   </tr>
 </table>
 <% end %>
+</div>
 
-<%= link_to 'Back', mappings_path %>
+<button class="btn btn-default"><%= link_to 'Back', mappings_path %></button>

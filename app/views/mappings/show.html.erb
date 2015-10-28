@@ -1,5 +1,5 @@
 <p> Mapping <%= @mapping.id %></p>
-
+<div class="jumbotron">
 <table>
 <tr valign="top">
 <td>
@@ -38,8 +38,8 @@ Database 1: <%= @mapping.database1 %>
       	<%= f.text_field :colname, :required => 'required' %>
   	</td>
 
-      <td style="padding-right: 15px;">
-      	<%= f.select :coltype, ['VARCHAR','INTEGER'], :required => 'required'  %>
+    <td width="150" style="padding-right: 15px;">
+      	<%= f.select :coltype, [['VARCHAR','VARCHAR'],['INTEGER','INTEGER'],['DATE','DATE'],['BOOLEAN','BOOLEAN'],['TIMESTAMP','TIMESTAMP']] %>
   	</td>
 
   	<%= f.hidden_field :database, :value => 1 %>
@@ -98,8 +98,8 @@ Database 2: <%= @mapping.database2 %>
     	<%= f2.text_field :colname, :required => 'required' %>
 	</td>
 
-    <td style="padding-right: 15px;">
-    	<%= f2.select :coltype, ['VARCHAR','INTEGER'],  :required => 'required'  %>
+    <td width="150" style="padding-right: 15px;">
+    	<%= f2.select :coltype, [['VARCHAR','VARCHAR'],['INTEGER','INTEGER'],['DATE','DATE'],['BOOLEAN','BOOLEAN'],['TIMESTAMP','TIMESTAMP']] %>
 	</td>
 
 	  	<%= f2.hidden_field :database, :value => 2 %>
@@ -115,8 +115,7 @@ Database 2: <%= @mapping.database2 %>
 </td>
 </tr>
 </table>
-
-
+</div>
  
 <%= link_to 'Edit', edit_mapping_path(@mapping) %> |
 <%= link_to 'List Mapping', mappings_path %>

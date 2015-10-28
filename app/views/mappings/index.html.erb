@@ -1,12 +1,14 @@
-<h1>Saved Mappings</h1>
+<head>
+    <link href="/app/assets/stylesheets/landing-page.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+</head>
 
-
-
+<div class="jumbotron">
 <table align="center">
   <tr>
-  	<th style="padding: 15px;">| Mapping id | </th>
-    <th style="padding: 15px;">|  Database 1 |</th>
-    <th style="padding: 15px;">|  Database 2  |</th>
+  	<th style="padding: 15px;"><h3>Mapping id</h3></th>
+    <th style="padding: 15px;"><h3>Database 1</h3></th>
+    <th style="padding: 15px;"><h3>Database 2</h3></th>
 
 
   </tr>
@@ -28,7 +30,8 @@
   <tr align="right">
     <td style="padding-right: 15px;" colspan="6">
       <p><br></p>
-      <%= link_to '<button type="button">New Mapping</button>'.html_safe, new_mapping_path %>
+      <button class="btn btn-default"><%= link_to 'New Mapping'.html_safe, new_mapping_path %></button>
     </td>
   </tr>
 </table>
+</div>
