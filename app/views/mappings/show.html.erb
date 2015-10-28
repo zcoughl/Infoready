@@ -39,7 +39,7 @@ Database 1: <%= @mapping.database1 %>
   	</td>
 
       <td style="padding-right: 15px;">
-      	<%= f.text_field :coltype, :required => 'required'  %>
+      	<%= f.select :coltype, ['VARCHAR','INTEGER'], :required => 'required'  %>
   	</td>
 
   	<%= f.hidden_field :database, :value => 1 %>
@@ -99,7 +99,7 @@ Database 2: <%= @mapping.database2 %>
 	</td>
 
     <td style="padding-right: 15px;">
-    	<%= f2.text_field :coltype, :required => 'required'  %>
+    	<%= f2.select :coltype, ['VARCHAR','INTEGER'],  :required => 'required'  %>
 	</td>
 
 	  	<%= f2.hidden_field :database, :value => 2 %>
