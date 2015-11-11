@@ -1,0 +1,9 @@
+mapone:
+  database1: infoready
+  database2: b2b
+  user: david
+
+maptwo: 
+  database1: chase
+  database2: boa
+  user: david
