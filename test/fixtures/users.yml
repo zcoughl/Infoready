@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 david:
-	name: David Hello
-	email: david@what.com
-	company: University of Michigan
+  name: David Hello
+  email: david@what.com
+  company: University of Michigan
 
 steve:
-	name: Steve Jobs
-	email: steve@what.com
-	company: Apple
+  name: Steve Jobs
+  email: steve@what.com
+  company: Apple
+
+
 
 
 
