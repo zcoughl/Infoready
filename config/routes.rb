@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'datasource' =>'datasources#index'
   post 'datasource' => 'datasources#create'
   get 'edit_password' => 'users#edit_password'
+
+  get 'download'=>'mappings#download_mapping'
   resources :users
 
   resources :mappings do

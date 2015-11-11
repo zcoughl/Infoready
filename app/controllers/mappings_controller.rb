@@ -1,3 +1,5 @@
+#require "prawn"
+require "json"
 class MappingsController < ApplicationController
   before_action only: [:create, :destroy]
 
@@ -53,9 +55,36 @@ class MappingsController < ApplicationController
     @mapping.destroy
     redirect_to mappings_path
   end
+
+  def download_mapping
+    @mapping = Mapping.find(params[:id])
+    send_data generate_mapping(@mapping),
+              filename: "mapping_#{@mapping.id}.json"
+              #type: "application/pdf"
+  end
   
+  def upload_mapping
+    @file = params[:file].read
+    data = JSON.parse(file)
+  end
+
   private
     def mapping_params
       params.require(:mapping).permit(:database1, :database2)
+    end
+
+    def generate_mapping(mapping)
+      @mapping.to_json
+      @mapping.entries.to_json
+
+      #Prawn::Document.new do
+      #  text "mapping #{mapping.id}" , align: :center
+      #  text "database1: #{mapping.database1}"
+      #  text "database2: #{mapping.database2}"
+      #  mapping.entries.each do |entry|
+      #    text "#{entry.tablename} #{entry.colname} #{entry.coltype}"
+      #  end
+        
+      #end.render
     end
 end
