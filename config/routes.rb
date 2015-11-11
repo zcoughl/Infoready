@@ -17,11 +17,18 @@ Rails.application.routes.draw do
   get 'edit_password' => 'users#edit_password'
 
   get 'download'=>'mappings#download_mapping'
+  get 'upload' => 'mappings#upload_mapping'
+  post 'upload' => 'mappings#upload_mapping'
+  get 'test' => 'mappings#test'
   resources :users
-
+  resources :mappings
   resources :mappings do
     resources :entries
   end
+  resources :mappings do 
+    collection { post :upload_mapping}
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

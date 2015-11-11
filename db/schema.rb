@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009135230) do
+ActiveRecord::Schema.define(version: 20151111163903) do
 
   create_table "datasources", force: :cascade do |t|
     t.text     "source_name"
@@ -45,11 +45,12 @@ ActiveRecord::Schema.define(version: 20151009135230) do
   end
 
   create_table "mappings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "user_id"
     t.string   "database2"
     t.string   "database1"
+    t.string   "mapping_name"
   end
 
   create_table "users", force: :cascade do |t|

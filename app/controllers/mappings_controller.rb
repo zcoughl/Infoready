@@ -64,13 +64,17 @@ class MappingsController < ApplicationController
   end
   
   def upload_mapping
-    @file = params[:file].read
-    data = JSON.parse(file)
+    @file = params[:mappingfile].read
+    @data = JSON.parse(@file)
+    #save to db ..
+
+    #redirect_to test_path
   end
+
 
   private
     def mapping_params
-      params.require(:mapping).permit(:database1, :database2)
+      params.require(:mapping).permit(:database1, :database2, :mapping_name)
     end
 
     def generate_mapping(mapping)

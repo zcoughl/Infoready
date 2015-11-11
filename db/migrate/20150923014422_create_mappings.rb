@@ -7,6 +7,7 @@ class CreateMappings < ActiveRecord::Migration
       t.integer :from
       t.integer :to
       t.string :user_id
+      t.string :mapping_name
 
       t.references :user, foreign_key: true
       t.timestamps null: false
