@@ -37,11 +37,11 @@
       
       <%= form_for :mappings, { :url => upload_path , :html => {:multipart => true} }  do |f| %>
         <%= file_field_tag 'mappingfile' %>
-        <%= submit_tag %>
+        <%= submit_tag 'Upload' %>
       <% end %>
     
       
-      <button class="btn btn-default"><%= link_to 'Upload Mapping'.html_safe, new_mapping_path %></button>
+     
       <button class="btn btn-default"><%= link_to 'New Mapping'.html_safe, new_mapping_path %></button>
     </td>
   </tr>

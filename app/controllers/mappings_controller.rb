@@ -66,6 +66,12 @@ class MappingsController < ApplicationController
   def upload_mapping
     @file = params[:mappingfile].read
     @data = JSON.parse(@file)
+
+    #get the two database names
+    @data.each do |d|
+      d["database"]
+    end
+    
     #save to db ..
 
     #redirect_to test_path
