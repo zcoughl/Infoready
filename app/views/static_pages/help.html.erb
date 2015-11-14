@@ -1,10 +1,82 @@
-<% provide(:title, "Help") %>
+<% provide(:title, "Tutorial") %>
 <!DOCTYPE html>
-<html>
-	<h1>Error</h1>
-	<body>
-		<p>
-			You have been redirected to this page because the page doesn't exist, or you don't have access to the page.
+<div class="jumbotron">
+	<h1>
+		Getting Started
+	</h1>
+
+</div>
+
+<div class="col-sm-6">
+		<br><br><br>
+		<h2>Creating an account</h2>
+		<row>
+		<p style="font-size: x-large">
+			In order to get authenticated with our tool, first you must sign up.  From the home page, you can quickly navigate to our sign up form.
 		</p>
-	</body>
-</html>
+		</row>
+
+		<br><br><br><br><br><br>
+		<h2>Your Profile</h2>
+		<row>
+		<p style="font-size: x-large">
+			You will then be redirected to you profile page.  Notice in the top right corner there is navigation in a drop down menu to get you anywhere within the website.
+		</p>
+		</row>
+
+		<br><br><br><br>
+		<h2>The Mapping Tool</h2>
+		<row>
+		<p style="font-size: x-large">
+			Here, you can see that there is already a mapping created between the Census and B2B databases.  Next, we will click the "New Mapping" button, and create our own.
+		</p>
+		</row>
+
+		<br><br><br><br>
+		<h2>Creating the Database Mapping</h2>
+		<row>
+		<p style="font-size: x-large">
+			Once you have reached this page it is time to fill in the form the define which two databases you want to create a mapping between.  Finally, you can assign the mapping a custom name and advance to the next step.
+		</p>
+		</row>
+
+		<br><br><br>
+		<h2>Defining the Database Mapping</h2>
+		<row>
+		<p style="font-size: x-large">
+			Now, this page will be divided into two parts.  The left, which corresponds to our first database, and the right, which corresponds to our second.  We can now enter in the table name, column name, and data type, and then click 'Create Entry'.
+		</p>
+		</row>
+
+		<br><br><br>
+		<h2>Defining the Database Mapping</h2>
+		<row>
+		<p style="font-size: x-large">
+			By iterating the previous step a few times, you can now see how we have used the tool to construct an interesting mapping between address in one database, and several other components in another.
+		</p>
+		</row>
+
+		<br><br><br>
+		<h2>Viewing our Mappings</h2>
+		<row>
+		<p style="font-size: x-large">
+			If you navigate back to the "Mapping Tool" page, you can now see a list of mappings that you have created.  You also have the ability to view, edit, delete, and download them, which is indicated by the links to the right of each mapping.
+		</p>
+		</row>
+</div>
+
+<div class="col-sm-4">
+	<%= link_to(image_tag("Tutorial_Pic1.png", :alt => "Img Not Found", :width => 500, :height => 300, :title => "Signing Up")) %>
+	<br><br><br>
+		<%= link_to(image_tag("Tutorial_Pic2.png", :alt => "Img Not Found", :width => 500, :height => 300, :title => "Profile Page")) %>
+	<br><br><br>
+		<%= link_to(image_tag("Tutorial_Pic3.png", :alt => "Img Not Found", :width => 500, :height => 300, :title => "Mapping Page")) %>
+	<br><br><br>
+		<%= link_to(image_tag("Tutorial_Pic4.png", :alt => "Img Not Found", :width => 500, :height => 300, :title => "Mapping Page")) %>
+	<br><br><br>
+		<%= link_to(image_tag("Tutorial_Pic5.png", :alt => "Img Not Found", :width => 500, :height => 300, :title => "Mapping Page")) %>
+	<br><br><br>
+		<%= link_to(image_tag("Tutorial_Pic6.png", :alt => "Img Not Found", :width => 500, :height => 300, :title => "Mapping Page")) %>
+	<br><br><br>
+		<%= link_to(image_tag("Tutorial_Pic7.png", :alt => "Img Not Found", :width => 500, :height => 300, :title => "Mapping Page")) %>
+</div>
