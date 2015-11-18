@@ -1,27 +1,23 @@
-<% @data.each do |d| %>
-<pre>
-  <%= d.inspect %>
-</pre>
-<%end%>
+
 <table>
-	<tr>
-		<td>
+  <tr>
+    <td>
 <h1>
-Database 1:<br> <%= %>
+Database 1: <%=@database1%><br> 
 </h1>
 <br>
 <table>
   <tr align="center">
-  	<td style="padding-right: 15px;"> <h4>Table Name</h4>  </td>
-  	<td style="padding-right: 15px;"> <h4>Column Name</h4>  </td>
-  	<td style="padding-right: 15px;"> <h4>Column Type</h4>  </td>
-  	<td style="padding-right: 15px;"> <h4>Edit</h4>  <td>
+    <td style="padding-right: 15px;"> <h4>Table Name</h4>  </td>
+    <td style="padding-right: 15px;"> <h4>Column Name</h4>  </td>
+    <td style="padding-right: 15px;"> <h4>Column Type</h4>  </td>
+    <td style="padding-right: 15px;"> <h4>Edit</h4>  <td>
   </tr>
 
-  <% @data.each do |d| %>
+  <% @fields.each do |d| %>
   <% if d["database"]==1%>
   <tr align="center">
-  	<td style="padding-right: 15px;"><%= d["tablename"] %></td>
+    <td style="padding-right: 15px;"><%= d["tablename"] %></td>
     <td style="padding-right: 15px;"><%= d["colname"] %></td>
     <td style="padding-right: 15px;"><%= d["coltype"] %></td>
     <td style="padding-right: 15px;">
@@ -30,7 +26,7 @@ Database 1:<br> <%= %>
   </tr>
   <%end%>
   <% end %>
-	
+  
   
 
 </table>
@@ -38,26 +34,26 @@ Database 1:<br> <%= %>
 <td width = '50'></td>
 <td>
 <h1>
-Database 2:<br> <%= %>
+Database 2: <%=@database2 %><br> 
 </h1>
 <br>
 
 <table>
   <tr align="center">
-  	<td style="padding-right: 15px;"> <h4>Table Name</h4>  </td>
-  	<td style="padding-right: 15px;"> <h4>Column Name</h4>  </td>
-  	<td style="padding-right: 15px;"> <h4>Column Type</h4>  </td>
-  	<td style="padding-right: 15px;"> <h4>Edit</h4>  <td>
+    <td style="padding-right: 15px;"> <h4>Table Name</h4>  </td>
+    <td style="padding-right: 15px;"> <h4>Column Name</h4>  </td>
+    <td style="padding-right: 15px;"> <h4>Column Type</h4>  </td>
+    <td style="padding-right: 15px;"> <h4>Edit</h4>  <td>
   </tr>
 
-  <% @data.each do |d| %>
+  <% @fields.each do |d| %>
   <% if d["database"]==2%>
   <tr align="center">
-  	<td style="padding-right: 15px;"><%= d["tablename"] %></td>
+    <td style="padding-right: 15px;"><%= d["tablename"] %></td>
     <td style="padding-right: 15px;"><%= d["colname"] %></td>
     <td style="padding-right: 15px;"><%= d["coltype"] %></td>
     
-	<%end%>
+  <%end%>
   <% end %>
 
   
@@ -68,3 +64,5 @@ Database 2:<br> <%= %>
 </td>
 </tr>
 </table>
+<br>
+<%= link_to "List Mappings", mappings_path, class: "" %>

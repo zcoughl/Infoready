@@ -34,12 +34,14 @@
   <tr align="right">
     <td style="padding-right: 15px;" colspan="6">
       <p><br></p>
-      
+      <div class="row-fluid">
+        <div class="col-sm-3" stype="float:right;">
       <%= form_for :mappings, { :url => upload_path , :html => {:multipart => true} }  do |f| %>
         <%= file_field_tag 'mappingfile' %>
-        <%= submit_tag 'Upload' %>
+        <%= submit_tag 'Upload mapping' %>
       <% end %>
-    
+      </div>
+      </div>
       
      
       <button class="btn btn-default"><%= link_to 'New Mapping'.html_safe, new_mapping_path %></button>

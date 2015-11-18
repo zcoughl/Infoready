@@ -66,15 +66,28 @@ class MappingsController < ApplicationController
   def upload_mapping
     @file = params[:mappingfile].read
     @data = JSON.parse(@file)
+    @head = JSON.parse(@data["head"])
+    @fields = JSON.parse(@data["fields"])
 
-    #get the two database names
-    @data.each do |d|
-      d["database"]
-    end
-    
+    @database1=@head["database1"]
+    @database2=@head["database2"]
+
     #save to db ..
+    @user = current_user
+    @mapping = @user.mappings.new(database1: @database1, database2: @database2, mapping_name: @head["mapping_name"])
+    @mapping.save
 
-    #redirect_to test_path
+    #if @mapping.save
+    #  flash[:notice] = "Successfully created mapping."
+    #end
+
+    @fields.each do |f|
+      @field = @mapping.entries.new(tablename: f["tablename"], colname: f["colname"], coltype: f["coltype"], database: f["database"])
+      @field.save
+    end
+
+    flash[:notice] = "Successfully saved this mapping."
+
   end
 
 
@@ -84,8 +97,7 @@ class MappingsController < ApplicationController
     end
 
     def generate_mapping(mapping)
-      @mapping.to_json
-      @mapping.entries.to_json
+      @json_result=JSON.generate(:head => @mapping.to_json, :fields => @mapping.entries.to_json)
 
       #Prawn::Document.new do
       #  text "mapping #{mapping.id}" , align: :center
