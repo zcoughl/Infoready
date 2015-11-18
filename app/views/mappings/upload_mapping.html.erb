@@ -1,0 +1,70 @@
+<% @data.each do |d| %>
+<pre>
+  <%= d.inspect %>
+</pre>
+<%end%>
+<table>
+	<tr>
+		<td>
+<h1>
+Database 1:<br> <%= %>
+</h1>
+<br>
+<table>
+  <tr align="center">
+  	<td style="padding-right: 15px;"> <h4>Table Name</h4>  </td>
+  	<td style="padding-right: 15px;"> <h4>Column Name</h4>  </td>
+  	<td style="padding-right: 15px;"> <h4>Column Type</h4>  </td>
+  	<td style="padding-right: 15px;"> <h4>Edit</h4>  <td>
+  </tr>
+
+  <% @data.each do |d| %>
+  <% if d["database"]==1%>
+  <tr align="center">
+  	<td style="padding-right: 15px;"><%= d["tablename"] %></td>
+    <td style="padding-right: 15px;"><%= d["colname"] %></td>
+    <td style="padding-right: 15px;"><%= d["coltype"] %></td>
+    <td style="padding-right: 15px;">
+      
+    </td>
+  </tr>
+  <%end%>
+  <% end %>
+	
+  
+
+</table>
+</td>
+<td width = '50'></td>
+<td>
+<h1>
+Database 2:<br> <%= %>
+</h1>
+<br>
+
+<table>
+  <tr align="center">
+  	<td style="padding-right: 15px;"> <h4>Table Name</h4>  </td>
+  	<td style="padding-right: 15px;"> <h4>Column Name</h4>  </td>
+  	<td style="padding-right: 15px;"> <h4>Column Type</h4>  </td>
+  	<td style="padding-right: 15px;"> <h4>Edit</h4>  <td>
+  </tr>
+
+  <% @data.each do |d| %>
+  <% if d["database"]==2%>
+  <tr align="center">
+  	<td style="padding-right: 15px;"><%= d["tablename"] %></td>
+    <td style="padding-right: 15px;"><%= d["colname"] %></td>
+    <td style="padding-right: 15px;"><%= d["coltype"] %></td>
+    
+	<%end%>
+  <% end %>
+
+  
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
