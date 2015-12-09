@@ -3,7 +3,7 @@ require 'test_helper'
 class MappingTest < ActiveSupport::TestCase
 
   def setup
-    @user = Mapping.new(database1: "b2b", database2: "InfoReady",
+    @mapping = Mapping.new(database1: "b2b", database2: "InfoReady",
                      user: "David Hello")
   end
 
